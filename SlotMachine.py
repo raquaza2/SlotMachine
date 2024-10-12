@@ -2,9 +2,11 @@ import random
 def spin_row():
     symbols = ['🍎','🍊','🍋','🍒','🍉']
     
-    
+    #choose 3 random symbols
     return [random.choice(symbols)for _ in range(3)]
      
+     
+     #print  the row
 def print_row(row):
     print("***************")
     print(" | ".join(row))
@@ -12,6 +14,7 @@ def print_row(row):
    
 
 def get_payout(row, bet):
+    #check if the row is a win
     if row[0] == row[1] == row[2]:
         if  row[0] == '🍎':
             return bet * 3
@@ -40,7 +43,7 @@ def main():
         if not bet.isdigit():
             print("Invalid bet amount. Please enter a number.")
             continue
-        
+        #change data type of bet
         bet = int(bet)
         
         if bet > balance:
@@ -53,6 +56,7 @@ def main():
         
         balance -= bet
         
+        # to print row
         row = spin_row()
         print("Spinning...\n")
         print_row(row)
